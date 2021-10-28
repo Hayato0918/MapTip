@@ -26,7 +26,7 @@
 //*****************************************************************************
 // É}ÉNÉçíËã`
 //*****************************************************************************
-#define PIXEL_X 10
+#define PIXEL_X 20
 #define PIXEL_Y 10
 
 //*****************************************************************************
@@ -61,10 +61,10 @@ HRESULT InitPlayer(void)
 	{
 		for (int j = 0; j < PIXEL_X; j++)
 		{
-			pixel[j][i].pos = D3DXVECTOR2(SCREEN_WIDTH / PIXEL_X * i, SCREEN_HEIGHT / PIXEL_Y * j);
+			pixel[j][i].pos = D3DXVECTOR2(SCREEN_WIDTH / PIXEL_X * j, SCREEN_HEIGHT / PIXEL_Y * i);
 			pixel[j][i].size = D3DXVECTOR2(SCREEN_WIDTH / PIXEL_X, SCREEN_HEIGHT / PIXEL_Y);
 
-			tip[j][i].pos = D3DXVECTOR2(SCREEN_WIDTH / PIXEL_X * i, SCREEN_HEIGHT / PIXEL_Y * j);
+			tip[j][i].pos = D3DXVECTOR2(SCREEN_WIDTH / PIXEL_X * j, SCREEN_HEIGHT / PIXEL_Y * i);
 			tip[j][i].size = D3DXVECTOR2(SCREEN_WIDTH / PIXEL_X, SCREEN_HEIGHT / PIXEL_Y);
 			tip[j][i].drawflag = false;
 
@@ -122,7 +122,7 @@ void UpdatePlayer(void)
 			fprintf(fp, "{");
 			for (int j = 0; j < PIXEL_X; j++)
 			{
-				fprintf(fp, "%d", check[i][j]);
+				fprintf(fp, "%d", check[j][i]);
 				if (j < PIXEL_X - 1)
 					fprintf(fp, ",");
 			}
